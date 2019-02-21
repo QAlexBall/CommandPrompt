@@ -38,7 +38,7 @@
 
    3次握手
 
-   CLIENT						SERVER
+   CLIENT                                            SERVER
 
    ​		SYN=1, seq=x, ACK=0
 
@@ -50,7 +50,7 @@
 
    <-------------------------------------------------------
 
-   ​							SYN-RCVD
+   ​                                                      SYN-RCVD
 
    ​		ACK=1,seq=x+1,ack=y+1
 

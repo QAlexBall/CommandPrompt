@@ -38,11 +38,11 @@
 
    3次握手
 
-   ![3](3.png)
+   ![3](images/3.png)
 
    4次挥手
 
-   ![4](/home/alex/Desktop/CommandPrompt/4.png)
+   ![4](images/4.png)
 
 4. 从输入网址到获得页面的过程
 
@@ -145,7 +145,7 @@
 
 13. OSI
 
-    ![osi](/home/alex/Desktop/CommandPrompt/osi.png)
+    ![osi](images/osi.png)
 
     
 

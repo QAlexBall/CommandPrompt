@@ -29,3 +29,16 @@ Ansible使用Python编写,它使用SSH在不同的机器上执行命令.Ansible�
 3. ~/.ansible.cfg: 存在与当前用户家目录
 4. /etc/ansible/ansible.cfg 默认目录
 
+```yaml
+---
+- hosts: localhost
+  tasks:
+    - debug: 'msg={{ item }}'
+    with_items:
+      - one
+      - two
+      - three
+```
+```bash
+➜  CommandPrompt git:(master) ✗ ansible-playbook test.yml -c local
+```

@@ -1,0 +1,10 @@
+---
+- hosts: remote
+  become: yes
+  become_user: alex
+  tasks:
+      - name: Install Nginx
+        apt:
+            name: nginx
+            state: installed
+            update_cache: true

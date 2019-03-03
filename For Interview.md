@@ -141,9 +141,15 @@
 
 12. ICMP
 
+13. CGI和WSGI
+
+    CGI是通用网关接口,是连接web服务器和应用程序的接口,用户通过CGI来获取动态数据或文件.CGI程序是一个独立程序.
+
+    WSGI, Web Server Gateway Interface,是Python应用程序或框架和Web服务器之间的一种接口,WSGI的其中一个目的就是让用户可以用统一的语言编写前后端.
+
     
 
-13. OSI
+14. OSI
 
     ![osi](images/osi.png)
 

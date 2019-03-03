@@ -62,3 +62,14 @@ root@cc209b60ee20:/# ls
 ➜  ~ sudo docker rmi 47b
 ```
 
+### 2019-03-03
+
+```shell
+mysql> show databases;
+ERROR 1449 (HY000): The user specified as a definer ('mysql.infoschema'@'localhost') does not exist
+➜  ~ mysql_upgrade -u root -p
+
+```
+
+
+

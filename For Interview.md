@@ -141,9 +141,15 @@
 
 12. ICMP
 
+13. CGI和WSGI
+
+    CGI是通用网关接口,是连接web服务器和应用程序的接口,用户通过CGI来获取动态数据或文件.CGI程序是一个独立程序.
+
+    WSGI, Web Server Gateway Interface,是Python应用程序或框架和Web服务器之间的一种接口,WSGI的其中一个目的就是让用户可以用统一的语言编写前后端.
+
     
 
-13. OSI
+14. OSI
 
     ![osi](images/osi.png)
 
@@ -332,9 +338,56 @@ typedef struct {
 } PyListObject;
 ```
 
+##### python import
+import
+1. 找到指定的模块,必要时载入并初始化
+2. 在import语句执行的地方为本地命名空间定义变量名
 
+from ... import ...
+1. 找到from从句中指定的模块,加载并初始化它
+2. 对于跟在import后的每个标识符(名称):
+    * 验证from从句加载的模块是否有这个名称的属性
+    * 如果没有,尝试导入一个以这个名称为名字的子模块,然后再验证一下from从句中加载的模块是否有这个名称的属性
+    * 如果from从句中加载的模块此时没有这个名称的属性,ImportError
+    * 如果没有报错,本地命名空间会产生对标识符指向的对象的一个引用,如果有as从句,用as从句中的名称表示这个引用,如果没有as从句,用属性名即标识符表示这个引用.
 
+模块搜索顺序
+1. 包含输入脚本的目录
+2. PYTHONPATH
+3. 和安装有关的默认配置
+4. 完成初始化后,Python程序可以修改sys.path变量.包含运行脚本的目录会被放到搜索路径的开头,比标准库路径还要靠前,这便意味着包含运行脚本的目录下的模块会屏蔽掉标准库里的标准模块. 
 
+#### Flask
+render_template()实现机制?
+```python
+# render_template()源码
+def render_template(template_name_or_list, **context):
+    """Renders a template from the template folder with the given
+    context.
+
+    :param template_name_or_list: the name of the template to be
+                                  rendered, or an iterable with template names
+                                  the first one existing will be rendered
+    :param context: the variables that should be available in the
+                    context of the template.
+    """
+    ctx = _app_ctx_stack.top
+    ctx.app.update_template_context(context) # 使用一些常用变量跟新模板上下文
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+                   context, ctx.app)
+```
+当我们向render_template传入模板,和变量的跟新模板上下文后,render_template调用了ctx.app.jinjia_env.get_or_select_template.该方法属于jinjia2模块中的Enviroment,通过调用get_template,或select_template方法返回template的名字或列表,最后get_or_select_template调用_render方法.
+```python
+# render
+def _render(template, context, app):
+    """Renders the template and fires the signal"""
+
+    before_render_template.send(app, template=template, context=context)
+    rv = template.render(context)
+    template_rendered.send(app, template=template, context=context)
+    return rv
+```
+render() will return template as unicode string.
 
 ### C++11
 

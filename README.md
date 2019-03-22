@@ -40,10 +40,8 @@ groupadd: group 'docker' already exists
 Adding user alex to group docker
 # 重启docker服务
 ➜  ~ sudo systemctl restart docker
-
 ➜  ~ docker -v
 Docker version 18.09.2, build 6247962
-
 # problems
 ➜  ~ docker ps                    
 Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.39/containers/json: dial unix /var/run/docker.sock: connect: permission denied
@@ -51,8 +49,6 @@ Got permission denied while trying to connect to the Docker daemon socket at uni
 ➜  ~ sudo chgrp docker /lib/systemd/system/docker.socket
 ➜  ~ sudo chmod g+w /lib/systemd/system/docker.socket
 ➜  ~ docker ps                              
-
-
 # 获取镜像
 ➜  docker sudo docker pull ubuntu:18.04
 # run
@@ -68,8 +64,11 @@ root@cc209b60ee20:/# ls
 mysql> show databases;
 ERROR 1449 (HY000): The user specified as a definer ('mysql.infoschema'@'localhost') does not exist
 ➜  ~ mysql_upgrade -u root -p
-
 ```
 
+### 2019-03-19
 
+```shell
+
+```
 

@@ -72,3 +72,9 @@ ERROR 1449 (HY000): The user specified as a definer ('mysql.infoschema'@'localho
 
 ```
 
+### 2019-05-02
+```shell
+sudo apt-get remove zsh
+zsh没卸载干净，无法使用sudo。
+```
+登陆

@@ -78,3 +78,10 @@ sudo apt-get remove zsh
 zsh没卸载干净，无法使用sudo。
 ```
 登陆
+
+### 2019-05-15
+```shell
+Cloning into 'CommandPrompt'...
+fatal: unable to access 'https://github.com/QAlexBall/CommandPrompt.git/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443 
+➜  github git config --global --add remote.origin.proxy ""
+```

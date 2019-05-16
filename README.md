@@ -84,4 +84,9 @@ zsh没卸载干净，无法使用sudo。
 Cloning into 'CommandPrompt'...
 fatal: unable to access 'https://github.com/QAlexBall/CommandPrompt.git/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443 
 ➜  github git config --global --add remote.origin.proxy ""
+
+crontab -e
+
+# example for crontab
+*/10 * * * * sh /home/path/to/run.sh
 ```

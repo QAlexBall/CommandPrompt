@@ -77,7 +77,6 @@ ERROR 1449 (HY000): The user specified as a definer ('mysql.infoschema'@'localho
 sudo apt-get remove zsh
 zsh没卸载干净，无法使用sudo。
 ```
-登陆
 
 ### 2019-05-15
 ```shell
@@ -89,4 +88,18 @@ crontab -e
 
 # example for crontab
 */10 * * * * sh /home/path/to/run.sh
+```
+
+### 2019-05-18
+mac terminal can't use sock5 as a proxy
+use privoxy to
+```
+➜  brew install privoxy
+➜  vim /usr/local/etc/privoxy/config
+...
+listen-address 0.0.0.0:8118
+forward-socks5 / localhost:1080 .
+➜  /usr/local/sbin/privoxy /usr/local/etc/privoxy/config
+➜  export http_proxy='http://localhost:8118'
+➜  xport https_proxy='http://localhost:8118'
 ```

@@ -103,3 +103,16 @@ forward-socks5 / localhost:1080 .
 ➜  export http_proxy='http://localhost:8118'
 ➜  xport https_proxy='http://localhost:8118'
 ```
+
+### 2019-05-19
+spacevim can't use python3 on mac
+output spacevim runtime python path find python==python2.7
+i alais python=python3 in .zshrc to use python so it didn't work in spacevim
+so i set python and python-config to python.bak and python-config.bak in /usr/local/bin/
+and reset python and python-config
+```
+ln -s path/to/python python
+ln -s path/to/python-config python-config
+```
+and then spacevim runtime python path is python3
+

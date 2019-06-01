@@ -105,7 +105,7 @@ forward-socks5 / localhost:1080 .
 ```
 
 ### 2019-05-19
-spacevim can't use python3 on mac
+find spacevim can't use python3 default on mac
 output spacevim runtime python path find python==python2.7
 i alais python=python3 in .zshrc to use python so it didn't work in spacevim
 so i set python and python-config to python.bak and python-config.bak in /usr/local/bin/

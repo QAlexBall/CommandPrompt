@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/derenzhu/.oh-my-zsh"
+export ZSH="/Users/username/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -95,9 +95,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export PATH="/Users/derenzhu/Downloads:$PATH"
+export PATH="/Users/username/Downloads:$PATH"
 export PATH="/user/local/bin:$PATH"
-export NVM_DIR="/Users/derenzhu/.nvm"
+export NVM_DIR="/Users/username/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 
@@ -105,11 +105,11 @@ export PATH="/usr/local/opt/ruby/bin:$PATH"
 alias python3"/usr/local/Cellar/python/3.7.3/Frameworks/Python.framework/Versions/3.7/bin/python3"
 alias pip="/usr/local/Cellar/python/3.7.3/bin/pip3"
 # my_script
-export PATH="/Users/derenzhu/script/bin:$PATH"
+export PATH="/Users/username/script/bin:$PATH"
 alias simg=simg.sh
 
 # golang
-export GOPATH=/Users/derenzhu/go-workspace # don't forget to change your path correctly!
+export GOPATH=/Users/username/go-workspace # don't forget to change your path correctly!
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
@@ -145,4 +145,4 @@ function use_clang() {
 }
 
 # android
-export PATH="/Users/derenzhu/Library/Android/sdk/platform-tools/:$PATH"
+export PATH="/Users/username/Library/Android/sdk/platform-tools/:$PATH"

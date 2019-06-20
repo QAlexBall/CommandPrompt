@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/username/.oh-my-zsh"
+export ZSH="/Users/derenzhu/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -95,21 +95,22 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export PATH="/Users/username/Downloads:$PATH"
+export PATH="/Users/derenzhu/Downloads:$PATH"
 export PATH="/user/local/bin:$PATH"
-export NVM_DIR="/Users/username/.nvm"
+export NVM_DIR="/Users/derenzhu/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 # python config
 alias python3"/usr/local/Cellar/python/3.7.3/Frameworks/Python.framework/Versions/3.7/bin/python3"
 alias pip="/usr/local/Cellar/python/3.7.3/bin/pip3"
+
 # my_script
-export PATH="/Users/username/script/bin:$PATH"
+export PATH="/Users/derenzhu/Script/bin:$PATH"
 alias simg=simg.sh
 
 # golang
-export GOPATH=/Users/username/go-workspace # don't forget to change your path correctly!
+export GOPATH=/Users/derenzhu/go-workspace # don't forget to change your path correctly!
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
@@ -141,8 +142,36 @@ function use_gun() {
 function use_clang() {
   unalias gcc
   unalias g++
-  echo -e "=== now use clang ==="
 }
 
 # android
-export PATH="/Users/username/Library/Android/sdk/platform-tools/:$PATH"
+export PATH="/Users/derenzhu/Library/Android/sdk/platform-tools/:$PATH"
+
+# opencv
+export OpenCV_DIR=~/Github/Other/installation/OpenCV-4.1.0/lib/cmake/opencv4
+
+# change git user
+function change_to_chris() {
+  git config --global --replace-all user.name "chriszhu"
+  git config --global --replace-all user.email "chriszhu@motherapp.com"
+}
+
+function change_to_alex() {
+  git config --global --replace-all user.name "qalexball"
+  git config --global --replace-all user.email "zhuderen12345@icloud.com"
+}
+
+# back up
+cp ~/.zshrc ~/Github/CommandPrompt/
+
+# ssh connect 
+function connect_to_chriszhu {
+  ssh chriszhu@192.168.13.32
+}
+
+function connect_to_chris {
+  ssh chris@119.23.33.220
+}
+
+# mtr
+PATH="/usr/local/Cellar/mtr/0.92/sbin:$PATH"

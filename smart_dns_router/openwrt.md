@@ -1,4 +1,4 @@
-## openwrt
+## Smart Router 
 
 ### dependency
 
@@ -9,11 +9,22 @@ iptables
 ipset
 ```
 
-### ss-tunnel
+### DNS-Forwarder + ss-tunnel
 
-```shell
-nohup ss-tunnel -s 45.11.1.126 -p 453 -m aes-256-cfb -k motherapp2302 -b 0.0.0.0 -l 5353 -L 8.8.8.8:53 -u -v >> /var/log/ss-tunnel.log &
-```
+* DNS-Forwarder
+
+* ```shell
+  Enable
+  Listen Port 5353
+  Listen Address 0.0.0.0
+  DNS Server 127.0.0.1#5300
+  ```
+
+* ss-tunnel
+
+* ```shell
+  nohup ss-tunnel -s 45.11.1.126 -p 453 -m aes-256-cfb -k motherapp2302 -b 0.0.0.0 -l 5353 -L 8.8.8.8:53 -u -v >> /var/log/ss-tunnel.log &
+  ```
 
 ### ss-redis
 
@@ -26,6 +37,13 @@ nohup ss-redir -s 45.11.1.126 -p 453 -m aes-256-cfb -k motherapp2302 -b 0.0.0.0 
 ```shell
 ipset create gfwlist hash:ip
 ```
+
+* generate gfwlist
+
+* ```shell
+  wget https://github.com/cokebar/gfwlist2dnsmasq/gfwlist2dnsmasq.sh
+  sh gfwlist2dnsmasq.sh -s gfwlist -o test
+  ```
 
 ### dnsmasq example
 

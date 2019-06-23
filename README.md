@@ -110,9 +110,19 @@ output spacevim runtime python path find python==python2.7
 i alais python=python3 in .zshrc to use python so it didn't work in spacevim
 so i set python and python-config to python.bak and python-config.bak in /usr/local/bin/
 and reset python and python-config
-```
+```shell
 ln -s path/to/python python
 ln -s path/to/python-config python-config
 ```
 and then spacevim runtime python path is python3
+
+
+
+### 2019-06-23
+
+use aliyun to connect my home mac
+
+```shell
+ssh -fNgR 9000:127.0.0.1:22 username@aliyun_ip
+```
 

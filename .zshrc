@@ -175,3 +175,6 @@ function connect_to_chris {
 
 # mtr
 PATH="/usr/local/Cellar/mtr/0.92/sbin:$PATH"
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8

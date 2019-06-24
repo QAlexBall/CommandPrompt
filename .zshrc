@@ -8,7 +8,10 @@ export ZSH="/Users/derenzhu/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
+# ZSH_THEME="agnoster"
+export ZSH_THEME="ys"
+# ZSH_THEME="amuse"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -62,9 +65,15 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
 
+bindkey ',' autosuggest-accept
 source $ZSH/oh-my-zsh.sh
+# source ~/.oh-my-zsh/plugins/incr/incr*.zsh
 
 # User configuration
 
@@ -98,7 +107,9 @@ source $ZSH/oh-my-zsh.sh
 export PATH="/Users/derenzhu/Downloads:$PATH"
 export PATH="/user/local/bin:$PATH"
 export NVM_DIR="/Users/derenzhu/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+function nvm-load() {
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+}
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 # python config
@@ -117,29 +128,29 @@ export PATH=$PATH:$GOROOT/bin
 
 
 # proxy config
-/usr/local/sbin/privoxy /usr/local/etc/privoxy/config
 
-function off_proxy(){
-    unset http_proxy
-    unset https_proxy
-    echo -e "===== proxy off ====="
+function ss-off(){
+  unset http_proxy
+  unset https_proxy
+  echo -e "===== proxy off ====="
 }
 
-function open_proxy() {
-    export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
-    export http_proxy="http://127.0.0.1:8118"
-    export https_proxy=$http_proxy
-    echo -e "===== proxy on ===="
+function ss-on() {
+  /usr/local/sbin/privoxy /usr/local/etc/privoxy/config
+  export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
+  export http_proxy="http://127.0.0.1:8118"
+  export https_proxy=$http_proxy
+  echo -e "===== proxy on ===="
 }
 
 # gcc version
-function use_gun() {
+function gcc-to-gun() {
   alias gcc="/usr/local/Cellar/gcc/9.1.0/bin/gcc-9"
   alias g++="/usr/local/Cellar/gcc/9.1.0/bin/g++-9"
   echo -e "=== now use gun ==="
 }
 
-function use_clang() {
+function gcc-to-clang() {
   unalias gcc
   unalias g++
 }
@@ -151,12 +162,12 @@ export PATH="/Users/derenzhu/Library/Android/sdk/platform-tools/:$PATH"
 export OpenCV_DIR=~/Github/Other/installation/OpenCV-4.1.0/lib/cmake/opencv4
 
 # change git user
-function change_to_chris() {
+function git-to-chris() {
   git config --global --replace-all user.name "chriszhu"
   git config --global --replace-all user.email "chriszhu@motherapp.com"
 }
 
-function change_to_alex() {
+function git-to-alex() {
   git config --global --replace-all user.name "qalexball"
   git config --global --replace-all user.email "zhuderen12345@icloud.com"
 }
@@ -165,11 +176,13 @@ function change_to_alex() {
 cp ~/.zshrc ~/Github/CommandPrompt/
 
 # ssh connect 
-function connect_to_chriszhu {
+function ssh-to-chriszhu {
+  echo "===> connect to chriszhu@192.168.13.32"
   ssh chriszhu@192.168.13.32
 }
 
-function connect_to_chris {
+function ssh-to-chris {
+  echo "===> connect to chris@119.23.33.220"
   ssh chris@119.23.33.220
 }
 
@@ -178,3 +191,16 @@ PATH="/usr/local/Cellar/mtr/0.92/sbin:$PATH"
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+# theme
+function zsh-theme-set() {
+  ZSH_THEME=$1
+  source ~/.zshrc
+}
+
+function zsh-theme-list() {
+  ls .oh-my-zsh/themes
+}
+
+# tmux
+alias tmux="TERM=screen-256color-bce tmux"

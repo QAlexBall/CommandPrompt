@@ -131,3 +131,10 @@ and then spacevim runtime python path is python3
 ssh -fNgR 9000:127.0.0.1:22 username@aliyun_ip
 ```
 
+### 2019-06-28
+
+```shell
+# use autossh to replace
+autossh -M 5678 -NR 9000:localhost:22 username@aliyun_ip
+```
+

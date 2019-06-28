@@ -1,6 +1,8 @@
 ### 2019-02-03
+```shell
 ssh 免密登录
 ssh-copy-id -i ~/.ssh/id_rsa.pub alex@192.168.0.100
+```
 
 ### 2019-02-16
 
@@ -22,16 +24,17 @@ python  3869 user   20u  IPv4  49250      0t0  TCP ThinkPad:57326->1xx.2x.37.1xx
 ```
 
 ## Docker
-安装docker
 ```bash
+
+# 安装docker
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic test"
 sudo apt update
 sudo apt install docker-ce
 ```
-普通用户使用docker
 ```bash
+# 普通用户使用docker
 # 创建docker组
 ➜  ~ sudo groupadd docker
 groupadd: group 'docker' already exists
@@ -69,7 +72,7 @@ ERROR 1449 (HY000): The user specified as a definer ('mysql.infoschema'@'localho
 ### 2019-03-19
 
 ```shell
-
+???
 ```
 
 ### 2019-05-02
@@ -92,7 +95,8 @@ crontab -e
 
 ### 2019-05-18
 mac terminal can't use sock5 as a proxy
-use privoxy to
+use privoxy to 
+
 ```
 ➜  brew install privoxy
 ➜  vim /usr/local/etc/privoxy/config
@@ -101,28 +105,29 @@ listen-address 0.0.0.0:8118
 forward-socks5 / localhost:1080 .
 ➜  /usr/local/sbin/privoxy /usr/local/etc/privoxy/config
 ➜  export http_proxy='http://localhost:8118'
-➜  xport https_proxy='http://localhost:8118'
+➜  export https_proxy='http://localhost:8118'
 ```
 
 ### 2019-05-19
+
+##### spacevim
+
 find spacevim can't use python3 default on mac
 output spacevim runtime python path find python==python2.7
 i alais python=python3 in .zshrc to use python so it didn't work in spacevim
 so i set python and python-config to python.bak and python-config.bak in /usr/local/bin/
 and reset python and python-config
+
 ```shell
 ln -s path/to/python python
 ln -s path/to/python-config python-config
 ```
 and then spacevim runtime python path is python3
 
-
-
 ### 2019-06-23
 
-use aliyun to connect my home mac
-
 ```shell
+# use aliyun to connect my home mac
 ssh -fNgR 9000:127.0.0.1:22 username@aliyun_ip
 ```
 

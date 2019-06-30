@@ -118,7 +118,6 @@ alias pip="/usr/local/Cellar/python/3.7.3/bin/pip3"
 
 # my_script
 export PATH="/Users/derenzhu/Script/bin:$PATH"
-alias simg=simg.sh
 
 # golang
 export GOPATH=/Users/derenzhu/go-workspace # don't forget to change your path correctly!
@@ -181,10 +180,21 @@ function ssh-to-chriszhu {
   ssh chriszhu@192.168.13.32
 }
 
-function ssh-to-chris {
+function aliyun {
   echo "===> connect to chris@119.23.33.220"
   ssh chris@119.23.33.220
 }
+
+function home {
+  echo "===> connect to home"
+  ssh -p 1031 chris@119.23.33.220
+}
+
+function company {
+  echo "===> connect to company"
+  ssh -p 9000 chriszhu@119.23.33.220
+}
+
 
 # mtr
 PATH="/usr/local/Cellar/mtr/0.92/sbin:$PATH"
@@ -204,3 +214,8 @@ function zsh-theme-list() {
 
 # tmux
 alias tmux="TERM=screen-256color-bce tmux"
+
+# internet
+function iftop() {
+  sudo /usr/local/Cellar/iftop/1.0pre4/sbin/iftop -i en0
+}

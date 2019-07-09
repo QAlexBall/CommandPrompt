@@ -20,11 +20,11 @@ ipset
   DNS Server 127.0.0.1#5300
   ```
 
-* ss-tunnel
+### ss-tunnel
 
-* ```shell
-  nohup ss-tunnel -s 45.11.1.126 -p 453 -m aes-256-cfb -k motherapp2302 -b 0.0.0.0 -l 5353 -L 8.8.8.8:53 -u -v >> /var/log/ss-tunnel.log &
-  ```
+```shell
+nohup ss-tunnel -s 45.11.1.126 -p 453 -m aes-256-cfb -k motherapp2302 -b 0.0.0.0 -l 5353 -L 8.8.8.8:53 -u -v >> /var/log/ss-tunnel.log &
+```
 
 ### ss-redis
 

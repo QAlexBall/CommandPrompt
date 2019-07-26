@@ -21,7 +21,7 @@ sudo vim /etc/privoxy/config
 # listen-address [::1]:8118
 ...
 listen-address 0.0.0.0:8118
-forward-socks5 localhost:1080
+forward-socks5 / localhost:1080 .
 sudo service start privoxy
 ```
 
